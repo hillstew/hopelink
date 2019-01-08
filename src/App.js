@@ -4,7 +4,6 @@ import Aside from "./Aside";
 import LandingPage from "./LandingPage";
 import Header from "./Header";
 import Question from "./Question";
-// import { }
 
 class App extends Component {
   constructor() {
@@ -12,17 +11,19 @@ class App extends Component {
     this.state = {
       userName: "",
       techQuestions: [],
-      randomQuestions: []
+      randomQuestions: [],
+      showSavedAnswers: false,
+      savedAnswers: null
     };
   }
 
   componentDidMount() {
     fetch("http://memoize-datasets.herokuapp.com/api/v1/interviewQuestions")
-      .then(interviewQuestions => interviewQuestions.json())
-      .then(interviewQuestions => {
+      .then(data => data.json())
+      .then(data => {
         this.setState({
-          techQuestions: interviewQuestions.interviewQuestions.technical,
-          randomQuestions: interviewQuestions.interviewQuestions.random
+          techQuestions: data.interviewQuestions.technical,
+          randomQuestions: data.interviewQuestions.random
         });
       })
       .catch(err => console.log("cards error", err));
