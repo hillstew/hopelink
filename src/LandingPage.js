@@ -8,7 +8,7 @@ export default class LandingPage extends Component {
     };
   }
 
-  handleChange = event => {
+  updateState = event => {
     this.setState({
       userName: event.target.value
     });
@@ -21,10 +21,10 @@ export default class LandingPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="landing-page-div">
         <p>Please enter your name</p>
         <input
-          onChange={this.handleChange}
+          onChange={this.updateState}
           value={this.state.userName}
           type="text"
         />
