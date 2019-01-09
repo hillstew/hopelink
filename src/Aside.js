@@ -1,20 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Aside extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <aside>
-        <p>{this.props.userName}</p>
-        <button onClick={this.props.updateShowSavedAnswers}>
-          See Saved Answers
-        </button>
-      </aside>
-    );
-  }
+export default function Aside(props) {
+  return (
+    <aside>
+      <p>{props.userName}</p>
+      <button onClick={props.updateShowSavedAnswers}>See Saved Answers</button>
+    </aside>
+  );
 }
-
-export default Aside;
