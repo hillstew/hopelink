@@ -28,18 +28,29 @@ class Question extends Component {
   }
 
   toggleSubmitAnswer = event => {
-    event.preventDefault();
-    this.setState({ isSubmitted: true }, () => {
-      localStorage.setItem('answers', {
-        question: this.state.currentQuestion[0].question,
-        answer: this.state.currentAnswer
-      });
-    });
+    event.preventDefault()
+    let answer = {
+      question: this.state.currentQuestion,
+      answer: this.state.currentAnswer
+    };
+    this.props.updateSavedAnswers(answer)
+    this.setState({ isSubmitted: true })
   };
 
   render() {
+    const { showSavedAnswers, savedAnswers } = this.props;
     const { isSubmitted, currentAnswer, currentQuestion } = this.state;
-    if (isSubmitted) {
+    if (showSavedAnswers && savedAnswers.length >= 1) {
+      return savedAnswers.map(answer => {
+        return (
+          <AnswerCard
+            currentAnswer={answer.answer}
+            currentQuestion={answer.question}
+          />
+        );
+      })
+    }
+    else if (isSubmitted) {
       return (
         <AnswerCard
           currentAnswer={currentAnswer}
@@ -48,7 +59,7 @@ class Question extends Component {
       );
     } else {
       return (
-        <div>
+        <div className="question-div">
           <h2>{currentQuestion[0].question}</h2>
           <form onSubmit={this.toggleSubmitAnswer}>
             <textarea
@@ -56,7 +67,11 @@ class Question extends Component {
               value={this.state.value}
               onChange={this.updateCurrentAnswer}
             />
-            <input type="submit" value="Submit" />
+            <input
+              type="submit"
+              value="Submit"
+              className="question-submit-input"
+            />
           </form>
         </div>
       );

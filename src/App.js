@@ -12,8 +12,8 @@ class App extends Component {
       userName: "",
       techQuestions: [],
       randomQuestions: [],
-      showSavedAnswers: false,
-      savedAnswers: null
+      savedAnswers: [],
+      showSavedAnswers: false
     };
   }
 
@@ -27,10 +27,37 @@ class App extends Component {
         });
       })
       .catch(err => console.log("cards error", err));
+
+    let answers = JSON.parse(localStorage.getItem("savedAnswers"));
+    if (answers) {
+      console.log(answers)
+      this.setState({ savedAnswers: answers });
+    }
   }
 
   updateUserName = userName => {
     this.setState({ userName });
+  };
+
+  updateSavedAnswers = answer => {
+    const savedAnswers =
+      this.state.savedAnswers === 0
+        ? [answer]
+        : [...this.state.savedAnswers, answer];
+    this.setState({ savedAnswers }, () => {
+      this.saveToLocalStorage();
+    });
+  };
+
+  saveToLocalStorage() {
+    localStorage.setItem(
+      "savedAnswers",
+      JSON.stringify(this.state.savedAnswers)
+    );
+  }
+
+  updateShowSavedAnswers = () => {
+    this.setState({ showSavedAnswers: true });
   };
 
   renderLandingPage() {
@@ -43,15 +70,27 @@ class App extends Component {
   }
 
   renderApp() {
-    const { userName, techQuestions, randomQuestions } = this.state;
+    const {
+      userName,
+      techQuestions,
+      randomQuestions,
+      savedAnswers,
+      showSavedAnswers
+    } = this.state;
     return (
       <div className="app">
-        <Aside userName={userName} />
+        <Aside
+          userName={userName}
+          updateShowSavedAnswers={this.updateShowSavedAnswers}
+        />
         <div>
           <Header />
           <Question
             techQuestions={techQuestions}
             randomQuestions={randomQuestions}
+            savedAnswers={savedAnswers}
+            updateSavedAnswers={this.updateSavedAnswers}
+            showSavedAnswers={showSavedAnswers}
           />
         </div>
       </div>
