@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing Page should match snapshot 1`] = `
+<div
+  className="landing-page-div"
+>
+  <p>
+    Please enter your name
+  </p>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    Save
+  </button>
+</div>
+`;
