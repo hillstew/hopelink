@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Aside should match snapshot 1`] = `
+<aside>
+  <p>
+    Hillary
+  </p>
+  <button
+    onClick={[MockFunction]}
+  >
+    See Saved Answers
+  </button>
+</aside>
+`;
