@@ -38,10 +38,7 @@ class App extends Component {
   };
 
   updateSavedAnswers = answer => {
-    const savedAnswers =
-      this.state.savedAnswers === 0
-        ? [answer]
-        : [...this.state.savedAnswers, answer];
+    const savedAnswers = [...this.state.savedAnswers, answer];
     this.setState({ savedAnswers }, () => {
       this.saveToLocalStorage();
     });
