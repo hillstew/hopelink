@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnswerCard should match snapshot 1`] = `
+<div
+  className="answerCard-div"
+>
+  <h2>
+    What is object and array destructuring?
+  </h2>
+  <p>
+    The answer is
+  </p>
+  <a
+    href="https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Article about question
+  </a>
+  <br />
+  <a
+    href="https://www.youtube.com/watch?v=RJaRRS27100"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Video about question
+  </a>
+</div>
+`;
