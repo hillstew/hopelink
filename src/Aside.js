@@ -3,16 +3,17 @@ import React, { Component } from "react";
 class Aside extends Component {
   constructor(props) {
     super(props);
-    this.state = { cardName: "Hello" };
   }
-  
+
   render() {
-    let { userName } = this.props;
     return (
       <aside>
-        <p>{userName}</p>
+        <p>{this.props.userName}</p>
+        <button onClick={this.props.updateShowSavedAnswers}>
+          See Saved Answers
+        </button>
       </aside>
-    )
+    );
   }
 }
 

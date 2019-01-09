@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./styles/main.scss";
 import Aside from "./Aside";
 import LandingPage from "./LandingPage";
-import Header from "./Header";
 import Question from "./Question";
 
 class App extends Component {
@@ -30,7 +29,6 @@ class App extends Component {
 
     let answers = JSON.parse(localStorage.getItem("savedAnswers"));
     if (answers) {
-      console.log(answers)
       this.setState({ savedAnswers: answers });
     }
   }
@@ -63,7 +61,7 @@ class App extends Component {
   renderLandingPage() {
     return (
       <div>
-        <Header />
+        <h1>Hopelink</h1>
         <LandingPage updateUserName={this.updateUserName} />
       </div>
     );
@@ -84,7 +82,7 @@ class App extends Component {
           updateShowSavedAnswers={this.updateShowSavedAnswers}
         />
         <div>
-          <Header />
+          <h1>Hopelink</h1>
           <Question
             techQuestions={techQuestions}
             randomQuestions={randomQuestions}
