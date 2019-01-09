@@ -1,10 +1,21 @@
 aside {
-  border-right: 2px solid tomato;
+  border-right: 2px solid darkgrey;
   min-height: 100vh;
 
   p {
-    font-family: 'Staatliches', cursive;
+    font-family: 'Raleway', sans-serif;
     font-size: 3rem;
     text-align: center;
+  }
+
+  button {
+    border: transparent;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    margin: 0 25%;
+    
+    &:hover {
+      background-color: darkgrey;
+    }
   }
 }

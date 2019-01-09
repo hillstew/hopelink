@@ -1,6 +1,7 @@
 .question-div {
   display: flex;
   flex-direction: column;
+  font-family: 'Raleway', sans-serif;
   align-items: center;
 
   form {
@@ -15,12 +16,14 @@
   }
 
   .question-submit-input {
+    border: none;
     cursor: pointer;
+    font-family: 'Raleway', sans-serif;
     margin-top: 10px;
     width: 200px;
 
     &:hover {
-      background-color: lightcoral;
+      background-color: darkgray;
     }
   }
 }
