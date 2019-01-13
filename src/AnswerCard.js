@@ -14,10 +14,15 @@ class AnswerCard extends Component {
   };
 
   render() {
-    const { question, link, video } = this.props.techQuestions[this.props.currentQuestionIndex];
+    const { question, link, video } = this.props.techQuestions[
+      this.props.currentQuestionIndex
+    ];
     return (
       <div className="answerCard-div">
         <h2>{question}</h2>
+        {this.props.isSubmitted && (
+          <button onClick={this.props.showQuestion}>Show me a question</button>
+        )}
         <p>{this.props.currentAnswer}</p>
         <a href={link} target="_blank" rel="noopener noreferrer">
           Article about question
@@ -26,7 +31,9 @@ class AnswerCard extends Component {
         <a href={video} target="_blank" rel="noopener noreferrer">
           Video about question
         </a>
-        <button onClick={this.createAnswerPackage}>Save Answer</button>
+        {this.props.isSubmitted && (
+          <button onClick={this.createAnswerPackage}>Save Answer</button>
+        )}
       </div>
     );
   }
