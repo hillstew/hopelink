@@ -30,7 +30,9 @@ class Question extends Component {
     });
   };
 
-
+  showQuestion = () => {
+    this.setState({ isSubmitted: false });
+  };
 
   changeBackToPreviousQuestion = () => {
     let previousQuestionIndex = this.state.currentQuestionIndex - 1;
@@ -43,8 +45,18 @@ class Question extends Component {
   };
 
   render() {
-    const { showSavedAnswers, savedAnswers, updateSavedAnswers, techQuestions } = this.props;
-    const { isSubmitted, currentAnswer, currentQuestion, currentQuestionIndex } = this.state;
+    const {
+      showSavedAnswers,
+      savedAnswers,
+      updateSavedAnswers,
+      techQuestions
+    } = this.props;
+    const {
+      isSubmitted,
+      currentAnswer,
+      currentQuestion,
+      currentQuestionIndex
+    } = this.state;
     if (showSavedAnswers && savedAnswers.length >= 1) {
       return savedAnswers.map(answer => {
         return (
@@ -65,6 +77,8 @@ class Question extends Component {
           updateSavedAnswers={updateSavedAnswers}
           techQuestions={techQuestions}
           currentQuestionIndex={currentQuestionIndex}
+          isSubmitted={isSubmitted}
+          showQuestion={this.showQuestion}
         />
       );
     } else {

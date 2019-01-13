@@ -55,6 +55,10 @@ class App extends Component {
     this.setState({ showSavedAnswers: true });
   };
 
+  showMeAQuestion = () => {
+    this.setState({ showSavedAnswers: false });
+  };
+
   renderLandingPage() {
     return (
       <div>
@@ -77,9 +81,11 @@ class App extends Component {
         <Aside
           userName={userName}
           updateShowSavedAnswers={this.updateShowSavedAnswers}
+          showQuestions={this.showQuestions}
         />
         <div>
           <h1>Hopelink</h1>
+          {showSavedAnswers && <button onClick={this.showMeAQuestion} >Show me a question</button>}
           <Question
             techQuestions={techQuestions}
             randomQuestions={randomQuestions}
