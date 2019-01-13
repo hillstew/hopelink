@@ -1,66 +1,76 @@
 import React, { Component } from "react";
-import generateRandomNumber from "./utils/helper";
 import AnswerCard from "./AnswerCard";
 
 class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentQuestion: {},
       currentAnswer: "",
-      isSubmitted: false
+      isSubmitted: false,
+      currentQuestionIndex: 0
     };
-  }
-
-  getRandomQuestion(randomIndex) {
-    const question = [...this.props.techQuestions].splice(randomIndex, 1);
-    return question;
   }
 
   updateCurrentAnswer = event => {
     this.setState({ currentAnswer: event.target.value });
   };
 
-  componentWillMount() {
-    const randomNum = generateRandomNumber(this.props.techQuestions.length);
-    const question = this.getRandomQuestion(randomNum);
-    this.setState({ currentQuestion: question });
-  }
-
   toggleSubmitAnswer = event => {
-    event.preventDefault()
-    let answer = {
-      question: this.state.currentQuestion,
-      answer: this.state.currentAnswer
-    };
-    this.props.updateSavedAnswers(answer)
-    this.setState({ isSubmitted: true })
+    event.preventDefault();
+    this.setState({ isSubmitted: true });
+  };
+
+  changeToNextQuestion = () => {
+    let nextQuestionIndex = this.state.currentQuestionIndex + 1;
+    if (nextQuestionIndex === 20) {
+      nextQuestionIndex = 0;
+    }
+    this.setState({
+      currentQuestionIndex: nextQuestionIndex
+    });
+  };
+
+
+
+  changeBackToPreviousQuestion = () => {
+    let previousQuestionIndex = this.state.currentQuestionIndex - 1;
+    if (previousQuestionIndex === 0) {
+      previousQuestionIndex = 19;
+    }
+    this.setState({
+      currentQuestionIndex: previousQuestionIndex
+    });
   };
 
   render() {
-    const { showSavedAnswers, savedAnswers } = this.props;
-    const { isSubmitted, currentAnswer, currentQuestion } = this.state;
+    const { showSavedAnswers, savedAnswers, updateSavedAnswers, techQuestions } = this.props;
+    const { isSubmitted, currentAnswer, currentQuestion, currentQuestionIndex } = this.state;
     if (showSavedAnswers && savedAnswers.length >= 1) {
       return savedAnswers.map(answer => {
         return (
           <AnswerCard
             currentAnswer={answer.answer}
             currentQuestion={answer.question}
+            updateSavedAnswers={updateSavedAnswers}
+            techQuestions={techQuestions}
+            currentQuestionIndex={currentQuestionIndex}
           />
         );
-      })
-    }
-    else if (isSubmitted) {
+      });
+    } else if (isSubmitted) {
       return (
         <AnswerCard
           currentAnswer={currentAnswer}
           currentQuestion={currentQuestion}
+          updateSavedAnswers={updateSavedAnswers}
+          techQuestions={techQuestions}
+          currentQuestionIndex={currentQuestionIndex}
         />
       );
     } else {
       return (
         <div className="question-div">
-          <h2>{currentQuestion[0].question}</h2>
+          <h2>{techQuestions[currentQuestionIndex].question}</h2>
           <form onSubmit={this.toggleSubmitAnswer}>
             <textarea
               type="text"
@@ -73,6 +83,8 @@ class Question extends Component {
               className="question-submit-input"
             />
           </form>
+          <button onClick={this.changeBackToPreviousQuestion}>BACK</button>
+          <button onClick={this.changeToNextQuestion}>NEXT</button>
         </div>
       );
     }
