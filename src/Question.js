@@ -54,18 +54,19 @@ class Question extends Component {
     const {
       isSubmitted,
       currentAnswer,
-      currentQuestion,
       currentQuestionIndex
     } = this.state;
     if (showSavedAnswers && savedAnswers.length >= 1) {
       return savedAnswers.map(answer => {
         return (
           <AnswerCard
+            currentQuestion={answer.question.question}
             currentAnswer={answer.answer}
-            currentQuestion={answer.question}
             updateSavedAnswers={updateSavedAnswers}
             techQuestions={techQuestions}
             currentQuestionIndex={currentQuestionIndex}
+            savedAnswers={savedAnswers}
+            showSavedAnswers={showSavedAnswers}
           />
         );
       });
@@ -73,12 +74,13 @@ class Question extends Component {
       return (
         <AnswerCard
           currentAnswer={currentAnswer}
-          currentQuestion={currentQuestion}
           updateSavedAnswers={updateSavedAnswers}
           techQuestions={techQuestions}
           currentQuestionIndex={currentQuestionIndex}
           isSubmitted={isSubmitted}
           showQuestion={this.showQuestion}
+          savedAnswers={savedAnswers}
+          showSavedAnswers={showSavedAnswers}
         />
       );
     } else {
@@ -97,8 +99,15 @@ class Question extends Component {
               className="question-submit-input"
             />
           </form>
-          <button onClick={this.changeBackToPreviousQuestion}>BACK</button>
-          <button onClick={this.changeToNextQuestion}>NEXT</button>
+          <button
+            onClick={this.changeBackToPreviousQuestion}
+            className="next-back-btn"
+          >
+            BACK
+          </button>
+          <button onClick={this.changeToNextQuestion} className="next-back-btn">
+            NEXT
+          </button>
         </div>
       );
     }

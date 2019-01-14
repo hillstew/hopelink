@@ -38,7 +38,8 @@ class App extends Component {
   };
 
   updateSavedAnswers = answer => {
-    const savedAnswers = [...this.state.savedAnswers, answer];
+    const [...savedAnswers] = this.state.savedAnswers;
+    savedAnswers.push(answer)
     this.setState({ savedAnswers }, () => {
       this.saveToLocalStorage();
     });

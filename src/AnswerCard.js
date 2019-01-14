@@ -19,7 +19,8 @@ class AnswerCard extends Component {
     ];
     return (
       <div className="answerCard-div">
-        <h2>{question}</h2>
+        {this.props.showSavedAnswers === false && <h2>{question}</h2>}
+        {this.props.showSavedAnswers && <h2>{this.props.currentQuestion}</h2>}
         {this.props.isSubmitted && (
           <button onClick={this.props.showQuestion}>Show me a question</button>
         )}
