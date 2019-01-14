@@ -1,5 +1,5 @@
 aside {
-  border-right: 2px solid darkgrey;
+  background-color: cornflowerblue;
   min-height: 100vh;
 
   p {
@@ -10,12 +10,16 @@ aside {
 
   button {
     border: transparent;
+    border-radius: 10px;
     cursor: pointer;
+    height: 25px;
     font-family: 'Raleway', sans-serif;
-    margin: 0 25%;
+    margin: 0 15%;
+    transition-duration: 1s;
+    width: 175px;
     
     &:hover {
-      background-color: darkgrey;
+      background-color: lightgrey;
     }
   }
 }

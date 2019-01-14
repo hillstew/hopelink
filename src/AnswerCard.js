@@ -24,14 +24,18 @@ class AnswerCard extends Component {
         {this.props.isSubmitted && (
           <button onClick={this.props.showQuestion}>Show me a question</button>
         )}
-        <p>{this.props.currentAnswer}</p>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          Article about question
-        </a>
-        <br />
-        <a href={video} target="_blank" rel="noopener noreferrer">
-          Video about question
-        </a>
+        <p>
+          <span>YOUR ANSWER:</span> {this.props.currentAnswer}
+        </p>
+        <div>
+          <h3>RESOURCES</h3>
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            Article about question
+          </a>
+          <a href={video} target="_blank" rel="noopener noreferrer">
+            Video about question
+          </a>
+        </div>
         {this.props.isSubmitted && (
           <button onClick={this.createAnswerPackage}>Save Answer</button>
         )}

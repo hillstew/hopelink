@@ -2,4 +2,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h2 {
+    width: 550px;
+  }
+
+  h3 {
+    border-bottom: 2px solid cornflowerblue;
+  }
+  
+  span {
+    color: cornflowerblue
+  }
+
+  p {
+    text-overflow: scroll;
+    width: 600px;
+  }
+
+  div {
+    align-items: center;
+    border: 2px solid darkgray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  button {
+    border: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 25px;
+    font-family: 'Raleway', sans-serif;
+    margin: 15px;
+    transition-duration: 1s;
+    width: 175px;
+
+    &:hover {
+      background-color: darkgray;
+    }
+  }
 }

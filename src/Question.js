@@ -51,11 +51,7 @@ class Question extends Component {
       updateSavedAnswers,
       techQuestions
     } = this.props;
-    const {
-      isSubmitted,
-      currentAnswer,
-      currentQuestionIndex
-    } = this.state;
+    const { isSubmitted, currentAnswer, currentQuestionIndex } = this.state;
     if (showSavedAnswers && savedAnswers.length >= 1) {
       return savedAnswers.map(answer => {
         return (
@@ -99,15 +95,20 @@ class Question extends Component {
               className="question-submit-input"
             />
           </form>
-          <button
-            onClick={this.changeBackToPreviousQuestion}
-            className="next-back-btn"
-          >
-            BACK
-          </button>
-          <button onClick={this.changeToNextQuestion} className="next-back-btn">
-            NEXT
-          </button>
+          <div>
+            <button
+              onClick={this.changeBackToPreviousQuestion}
+              className="next-back-btn"
+            >
+              BACK
+            </button>
+            <button
+              onClick={this.changeToNextQuestion}
+              className="next-back-btn"
+            >
+              NEXT
+            </button>
+          </div>
         </div>
       );
     }

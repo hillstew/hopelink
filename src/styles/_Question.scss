@@ -4,26 +4,49 @@
   font-family: 'Raleway', sans-serif;
   align-items: center;
 
+  h2 {
+    width: 405px;
+    height: 75px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
   }
 
   textarea {
+    border-radius: 10px;
     height: 200px;
     font-size: 1rem;
+    resize: none;
+    outline: none;
     width: 400px;
   }
 
-  .question-submit-input {
+  div {
+    border-radius: 10px;
+    display: flex;
+    margin-top: 10px;
+  }
+
+
+
+  .question-submit-input, button {
     border: none;
+    border-radius: 10px;
     cursor: pointer;
     font-family: 'Raleway', sans-serif;
-    margin-top: 10px;
-    width: 200px;
+    height: 25px;
+    margin: 10px auto;
+    transition-duration: 1s;
+    width: 125px;
 
     &:hover {
       background-color: darkgray;
     }
+  }
+
+  button {
+    margin: 10px;
   }
 }

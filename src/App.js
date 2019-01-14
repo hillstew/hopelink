@@ -86,7 +86,7 @@ class App extends Component {
         />
         <div>
           <h1>Hopelink</h1>
-          {showSavedAnswers && <button onClick={this.showMeAQuestion} >Show me a question</button>}
+          {showSavedAnswers && <button className="saved-answers-btn" onClick={this.showMeAQuestion} >Show me a question</button>}
           <Question
             techQuestions={techQuestions}
             randomQuestions={randomQuestions}
