@@ -25,7 +25,21 @@ describe("App", () => {
     expect(wrapper.state("userName").length).toEqual(7);
   });
 
+  it("should add new answer to savedAnswers to update state and local storage", () => {
+    let answer = 4;
+    wrapper.instance().updateSavedAnswers(answer)
+    expect(wrapper.state("savedAnswers").length).toEqual(4)
+  })
 
+  it("should change showSavedAnswers to true when updateShowSavedAnswers is invoked", () => {
+    wrapper.instance().updateShowSavedAnswers();
+    expect(wrapper.instance().state.showSavedAnswers).toEqual(true);
+  })
+
+  it("should change showSavedAnswers to false when showMeAQuestion is invoked", () => {
+    wrapper.instance().showMeAQuestion();
+    expect(wrapper.instance().state.showSavedAnswers).toEqual(false);
+  })
 
 
 });
