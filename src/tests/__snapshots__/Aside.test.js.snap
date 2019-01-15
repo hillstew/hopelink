@@ -8,7 +8,7 @@ exports[`Aside should match snapshot 1`] = `
   <button
     onClick={[MockFunction]}
   >
-    See Saved Answers
+    See saved answers
   </button>
 </aside>
 `;

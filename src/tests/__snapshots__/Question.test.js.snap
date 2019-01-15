@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question should match snapshot 1`] = `
+<AnswerCard
+  currentAnswer="The answer is"
+  currentQuestion="What is object and array destructuring?"
+  currentQuestionIndex={0}
+  savedAnswers={
+    Array [
+      Object {
+        "answer": "The answer is",
+        "question": Object {
+          "category": "javascipt",
+          "link": "https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/",
+          "question": "What is object and array destructuring?",
+          "video": "https://www.youtube.com/watch?v=RJaRRS27100",
+        },
+      },
+    ]
+  }
+  showSavedAnswers={[MockFunction]}
+  techQuestions={
+    Array [
+      Object {
+        "category": "javascript",
+        "link": "https://www.sitepoint.com/demystifying-javascript-variable-scope-hoisting/",
+        "question": "What is the difference between local and global variables, and how do they relate to hoisting?",
+        "video": "https://www.youtube.com/watch?v=iJKkZA215tQ&t=244s",
+      },
+      Object {
+        "category": "javascript",
+        "link": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36",
+        "question": "What is closure?",
+        "video": "https://www.youtube.com/watch?v=-xqJo5VRP4A",
+      },
+      Object {
+        "category": "javascript",
+        "link": "https://tylermcginnis.com/javascript-private-and-public-class-fields/",
+        "question": "Describe private and public class fields",
+        "video": "https://www.youtube.com/watch?v=ZxpdR_C7RVA",
+      },
+      Object {
+        "category": "javascipt",
+        "link": "https://medium.com/@bretdoucette/foreach-v-map-javascript-the-definition-and-the-difference-5eaa65e15b65",
+        "question": "What is the difference between forEach and map?",
+        "video": "https://codeburst.io/javascript-map-vs-foreach-f38111822c0f",
+      },
+    ]
+  }
+  updateSavedAnswers={[MockFunction]}
+/>
+`;
