@@ -5,9 +5,6 @@ Hopelink is the link between a junior developer and their first job. It allow th
 ```git clone https://github.com/hillstew/hopelink.git```  
 ```npm install``` from the project root directory
 
-### See It Live
-
-
 ### Original Assignment
 [Memoize](http://frontend.turing.io/projects/memoize.html) project from Turing School of Software and Design 
 
