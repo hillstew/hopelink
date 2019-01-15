@@ -5,25 +5,42 @@ exports[`AnswerCard should match snapshot 1`] = `
   className="answerCard-div"
 >
   <h2>
-    What is object and array destructuring?
+    <Component />
   </h2>
+  <button>
+    Show me a question
+  </button>
   <p>
+    <span>
+      YOUR ANSWER:
+    </span>
+     
     The answer is
   </p>
-  <a
-    href="https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/"
-    rel="noopener noreferrer"
-    target="_blank"
+  <div>
+    <h3>
+      RESOURCES
+    </h3>
+    <a
+      href="https://www.sitepoint.com/demystifying-javascript-variable-scope-hoisting/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Article about question
+    </a>
+    <a
+      href="https://www.youtube.com/watch?v=iJKkZA215tQ&t=244s"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Video about question
+    </a>
+  </div>
+  <button
+    className="answerCard-save-answer"
+    onClick={[Function]}
   >
-    Article about question
-  </a>
-  <br />
-  <a
-    href="https://www.youtube.com/watch?v=RJaRRS27100"
-    rel="noopener noreferrer"
-    target="_blank"
-  >
-    Video about question
-  </a>
+    Save Answer
+  </button>
 </div>
 `;

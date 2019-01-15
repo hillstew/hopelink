@@ -37,7 +37,7 @@ class AnswerCard extends Component {
           </a>
         </div>
         {this.props.isSubmitted && (
-          <button onClick={this.createAnswerPackage}>Save Answer</button>
+          <button className="answerCard-save-answer" onClick={this.createAnswerPackage}>Save Answer</button>
         )}
       </div>
     );

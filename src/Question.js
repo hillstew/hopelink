@@ -36,7 +36,7 @@ class Question extends Component {
 
   changeBackToPreviousQuestion = () => {
     let previousQuestionIndex = this.state.currentQuestionIndex - 1;
-    if (previousQuestionIndex === 0) {
+    if (previousQuestionIndex === 0 || -1) {
       previousQuestionIndex = 19;
     }
     this.setState({
@@ -98,13 +98,13 @@ class Question extends Component {
           <div>
             <button
               onClick={this.changeBackToPreviousQuestion}
-              className="next-back-btn"
+              className="back-btn"
             >
               BACK
             </button>
             <button
               onClick={this.changeToNextQuestion}
-              className="next-back-btn"
+              className="next-btn"
             >
               NEXT
             </button>

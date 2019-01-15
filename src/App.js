@@ -89,7 +89,6 @@ class App extends Component {
           {showSavedAnswers && <button className="saved-answers-btn" onClick={this.showMeAQuestion} >Show me a question</button>}
           <Question
             techQuestions={techQuestions}
-            randomQuestions={randomQuestions}
             savedAnswers={savedAnswers}
             updateSavedAnswers={this.updateSavedAnswers}
             showSavedAnswers={showSavedAnswers}
